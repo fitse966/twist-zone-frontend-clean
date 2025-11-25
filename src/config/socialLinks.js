@@ -9,5 +9,7 @@ export const socialLinks = {
 };
 
 // API Configuration - FIXED ENDPOINT
+export const API_BASE_URL =
+  process.env.REACT_APP_API_URL || "https://twist-hair-backend.onrender.com";
 export const REACT_APP_API_URL =
   process.env.REACT_APP_API_URL || "https://twist-hair-backend.onrender.com";
