@@ -35,7 +35,7 @@ const AdminDashboard = ({ admin, onLogout }) => {
 
       // Fetch stats
       const statsResponse = await fetch(
-        "http://twist-hair-backend.onrender.com/api/admin/dashboard/stats",
+        "https://twist-hair-backend.onrender.com/api/admin/dashboard/stats",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -54,7 +54,7 @@ const AdminDashboard = ({ admin, onLogout }) => {
 
       // Fetch appointments
       const appointmentsResponse = await fetch(
-        "http://twist-hair-backend.onrender.com/api/admin/appointments?limit=100",
+        "https://twist-hair-backend.onrender.com/api/admin/appointments?limit=100",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -111,7 +111,7 @@ const AdminDashboard = ({ admin, onLogout }) => {
       const token = localStorage.getItem("adminToken");
 
       const response = await fetch(
-        `http://twist-hair-backend.onrender.com/api/admin/appointments/${appointmentId}/status`,
+        `https://twist-hair-backend.onrender.com/api/admin/appointments/${appointmentId}/status`,
         {
           method: "PATCH",
           headers: {
@@ -154,7 +154,7 @@ const AdminDashboard = ({ admin, onLogout }) => {
       const token = localStorage.getItem("adminToken");
 
       const response = await fetch(
-        `http://twist-hair-backend.onrender.com/api/admin/appointments/${appointmentId}`,
+        `https://twist-hair-backend.onrender.com/api/admin/appointments/${appointmentId}`,
         {
           method: "DELETE",
           headers: {

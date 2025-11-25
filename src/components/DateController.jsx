@@ -27,7 +27,7 @@ const DateController = () => {
 
       console.log("🔄 Fetching available dates...");
       const response = await fetch(
-        "http://twist-hair-backend.onrender.com/api/admin/date-controller/available-dates",
+        "https://twist-hair-backend.onrender.com/api/admin/date-controller/available-dates",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -64,7 +64,7 @@ const DateController = () => {
     try {
       const token = localStorage.getItem("adminToken");
       const response = await fetch(
-        "http://twist-hair-backend.onrender.com/api/admin/date-controller/deleted-slots",
+        "https://twist-hair-backend.onrender.com/api/admin/date-controller/deleted-slots",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -98,7 +98,7 @@ const DateController = () => {
     try {
       const token = localStorage.getItem("adminToken");
       const response = await fetch(
-        `http://twist-hair-backend.onrender.com/api/admin/date-controller/slot/${date}/${encodeURIComponent(
+        `https://twist-hair-backend.onrender.com/api/admin/date-controller/slot/${date}/${encodeURIComponent(
           timeSlot
         )}`,
         {
@@ -129,7 +129,7 @@ const DateController = () => {
     try {
       const token = localStorage.getItem("adminToken");
       const response = await fetch(
-        "http://twist-hair-backend.onrender.com/api/admin/date-controller/restore-slot",
+        "https://twist-hair-backend.onrender.com/api/admin/date-controller/restore-slot",
         {
           method: "POST",
           headers: {
