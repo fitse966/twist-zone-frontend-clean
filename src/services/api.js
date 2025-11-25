@@ -31,8 +31,8 @@ export const bookingAPI = {
       const response = await api.get("/bookings/availability");
       return response.data;
     } catch (error) {
-      console.log("Using mock data");
-      return mockData;
+      console.error("API Error:", error);
+      throw error; // ← Throw the error instead of using mock data!
     }
   },
 
