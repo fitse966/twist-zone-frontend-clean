@@ -28,7 +28,7 @@ const mockData = {
 export const bookingAPI = {
   getAvailability: async () => {
     try {
-      const response = await api.get("/bookings/availability");
+      const response = await api.get("/api/bookings/availability");
       return response.data;
     } catch (error) {
       console.error("API Error:", error);
@@ -38,7 +38,7 @@ export const bookingAPI = {
 
   createBooking: async (bookingData) => {
     try {
-      const response = await api.post("/bookings", bookingData);
+      const response = await api.post("/api/bookings", bookingData);
       return response.data;
     } catch (error) {
       console.log("Mock booking");
