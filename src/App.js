@@ -5,11 +5,13 @@ import AdminLogin from "./components/AdminLogin";
 import AdminDashboard from "./components/AdminDashboard";
 import Footer from "./components/Footer";
 import AboutUsPage from "./components/AboutUsPage";
+import LoadingScreen from "./components/LoadingScreen";
 import "./App.css";
 
 function App() {
   const [currentView, setCurrentView] = useState("hero");
   const [admin, setAdmin] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const token = localStorage.getItem("adminToken");
@@ -25,6 +27,25 @@ function App() {
         localStorage.removeItem("adminUser");
       }
     }
+
+    // Check if backend is ready
+    const checkBackend = async () => {
+      try {
+        const response = await fetch(
+          "https://twist-hair-backend.onrender.com/health"
+        );
+        if (response.ok) {
+          setIsLoading(false);
+        }
+      } catch (error) {
+        // If backend not ready, wait 5 seconds and check again
+        setTimeout(() => {
+          setIsLoading(false); // Show app anyway after timeout
+        }, 5000);
+      }
+    };
+
+    checkBackend();
   }, []);
 
   const handleBookAppointment = () => {
@@ -57,6 +78,11 @@ function App() {
 
   // Show footer on all pages except admin dashboard and admin login
   const showFooter = currentView !== "admin" && currentView !== "admin-login";
+
+  // Show loading screen while backend is waking up
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <div className="App">
